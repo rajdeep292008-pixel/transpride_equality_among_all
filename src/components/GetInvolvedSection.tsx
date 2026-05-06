@@ -38,7 +38,7 @@ export function GetInvolvedSection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="hero" size="xl" className="bg-background text-foreground hover:bg-background/90" asChild>
-              <a href="https://humsafar.org" target="_blank" rel="noopener noreferrer">Donate Now</a>
+              <a href="https://sahodari.org/home.html" target="_blank" rel="noopener noreferrer">Donate Now</a>
             </Button>
             <Button variant="hero-outline" size="xl" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/20" asChild>
               <a href="#contact">Join the Movement</a>
