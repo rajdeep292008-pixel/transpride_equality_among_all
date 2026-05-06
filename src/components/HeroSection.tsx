@@ -40,7 +40,7 @@ export function HeroSection() {
             <a href="#about">Learn More</a>
           </Button>
           <Button variant="hero-outline" size="xl" asChild>
-            <a href="#get-involved">Support Now</a>
+            <a href="https://sahodari.org/home.html" target="_blank" rel="noopener noreferrer">Support Now</a>
           </Button>
         </div>
       </div>
