@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { Link as RouterLink } from "@tanstack/react-router";
+import { supabase } from "@/integrations/supabase/client";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -13,12 +16,27 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [user, setUser] = useState<{ email?: string } | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+    supabase.auth.getUser().then(({ data }) => setUser(data.user ?? null));
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      subscription.unsubscribe();
+    };
   }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setUser(null);
+  };
 
   return (
     <nav
@@ -30,8 +48,9 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="text-xl font-bold text-gradient-pride">
-            TransPride
+          <a href="#" className="flex items-center gap-2">
+            <img src={logo} alt="TransPride logo" width={40} height={40} className="rounded-full" />
+            <span className="text-xl font-bold text-gradient-pride">TransPride</span>
           </a>
 
           {/* Desktop nav */}
@@ -45,6 +64,21 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
+            {user ? (
+              <button
+                onClick={handleLogout}
+                className="ml-2 px-4 py-2 text-sm font-medium rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                Logout
+              </button>
+            ) : (
+              <RouterLink
+                to="/login"
+                className="ml-2 px-4 py-2 text-sm font-medium rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                Login
+              </RouterLink>
+            )}
           </div>
 
           {/* Mobile toggle */}
@@ -76,6 +110,22 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
+            {user ? (
+              <button
+                onClick={() => { handleLogout(); setMobileOpen(false); }}
+                className="block w-full text-left px-4 py-3 text-sm font-medium text-primary hover:bg-accent rounded-lg"
+              >
+                Logout
+              </button>
+            ) : (
+              <RouterLink
+                to="/login"
+                onClick={() => setMobileOpen(false)}
+                className="block px-4 py-3 text-sm font-medium text-primary hover:bg-accent rounded-lg"
+              >
+                Login
+              </RouterLink>
+            )}
           </div>
         )}
       </div>
