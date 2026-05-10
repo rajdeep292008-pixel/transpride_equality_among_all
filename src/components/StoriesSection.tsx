@@ -1,21 +1,57 @@
 const stories = [
   {
-    name: "Ananya",
-    location: "Mumbai, India",
-    quote: "For years I hid who I was. When I finally came out, I lost my family — but I found myself. Today, I run a small business and mentor young trans people. We are not broken; we are brave.",
-    role: "Entrepreneur & Mentor",
+    name: "Laverne Cox",
+    location: "United States",
+    quote: "It is revolutionary for any trans person to choose to be seen and visible in a world that tells us we should not exist.",
+    role: "Emmy-Nominated Actress & Producer",
   },
   {
-    name: "Priya",
-    location: "Chennai, India",
-    quote: "The hardest part wasn't accepting myself — it was waiting for the world to accept me. I was denied a job 47 times before someone saw my talent, not my identity. That one chance changed my life.",
-    role: "Software Developer",
+    name: "Joyita Mondal",
+    location: "West Bengal, India",
+    quote: "I want to show that transgender people can hold positions of dignity and serve their communities with integrity.",
+    role: "India's First Transgender Judge",
   },
   {
-    name: "Ravi",
-    location: "Delhi, India",
-    quote: "As a trans man, people told me I was confused. But I've never been more clear about anything. I now work in healthcare, helping others access the support I was once denied.",
-    role: "Healthcare Worker",
+    name: "Manabi Bandopadhyay",
+    location: "West Bengal, India",
+    quote: "Education is the strongest weapon. When you change minds, you change the world.",
+    role: "India's First Transgender College Principal",
+  },
+  {
+    name: "Shabnam Mausi",
+    location: "Madhya Pradesh, India",
+    quote: "If we can win an election, we can win hearts. Politics needs people who have known struggle.",
+    role: "First Transgender Elected MLA in India",
+  },
+  {
+    name: "Padmini Prakash",
+    location: "Tamil Nadu, India",
+    quote: "Representation matters. When a child sees someone like them on television, they know they are not alone.",
+    role: "India's First Transgender News Anchor",
+  },
+  {
+    name: "Dr. Rachel Levine",
+    location: "United States",
+    quote: "Being authentic to who you are is the greatest gift you can give yourself and the world.",
+    role: "U.S. Assistant Secretary for Health",
+  },
+  {
+    name: "Georgina Beyer",
+    location: "New Zealand",
+    quote: "I never set out to be a trailblazer. I just wanted to live, and serve my people honestly.",
+    role: "World's First Openly Transgender MP",
+  },
+  {
+    name: "Gauri Sawant",
+    location: "Maharashtra, India",
+    quote: "Every child deserves a mother's love — and every mother deserves to be recognized, no matter her gender.",
+    role: "Activist & Adoptive Mother",
+  },
+  {
+    name: "Lynn Conway",
+    location: "United States",
+    quote: "Don't let anyone tell you what you cannot achieve. Innovation belongs to all of us.",
+    role: "Pioneering Computer Scientist",
   },
 ];
 
@@ -25,14 +61,14 @@ export function StoriesSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 reveal">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-            Stories & <span className="text-gradient-pride">Voices</span>
+            Trailblazers & <span className="text-gradient-pride">Voices</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-lg">
-            Real stories of courage, resilience, and hope.
+            Transgender leaders across the world who broke barriers and inspire millions to dream, dare, and demand dignity.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {stories.map((story, i) => (
             <div
               key={i}
@@ -52,6 +88,19 @@ export function StoriesSection() {
               <p className="text-sm font-medium text-pride-blue">{story.role}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 reveal text-center p-8 rounded-2xl gradient-pride-soft">
+          <h3 className="text-2xl font-bold text-foreground mb-2">Be Part of the Change</h3>
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
+            Every story you share, every voice you uplift, every act of allyship helps build a world where transgender people thrive everywhere.
+          </p>
+          <a
+            href="#ally"
+            className="inline-block px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors"
+          >
+            Become an Ally
+          </a>
         </div>
       </div>
     </section>
