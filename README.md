@@ -145,4 +145,5 @@ This project was developed with the assistance of AI tools to accelerate the cre
 ---
 
 > *"Equality Has No Gender. Every identity deserves dignity, respect, and the freedom to be."*
-> 
+
+Made with 💚 with the help of AI.
