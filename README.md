@@ -139,4 +139,10 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 ---
 
+🛠️ Built with AI
+This project was developed with the assistance of AI tools to accelerate the creation of this advocacy platform. We believe in leveraging modern technology to empower communities and spread awareness quickly and effectively.
+
+---
+
 > *"Equality Has No Gender. Every identity deserves dignity, respect, and the freedom to be."*
+> 
