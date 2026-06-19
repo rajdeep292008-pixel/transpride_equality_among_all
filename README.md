@@ -47,43 +47,6 @@ A modern, professional, and emotionally impactful web platform built to spread a
 
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) 18+
-- [Bun](https://bun.sh/) (recommended) or npm
-- A [Supabase](https://supabase.com/) project (for backend)
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/your-org/transpride.git
-cd transpride
-
-# Install dependencies
-bun install
-
-# Start the development server
-bun run dev
-```
-
-The app will be available at `http://localhost:3000`.
-
-### Environment Variables
-
-Create a `.env` file in the project root:
-
-```env
-VITE_SUPABASE_URL=your-supabase-url
-VITE_SUPABASE_PUBLISHABLE_KEY=your-supabase-anon-key
-SUPABASE_URL=your-supabase-url
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-```
-
----
-
 ## 🧩 Project Structure
 
 ```
@@ -145,5 +108,7 @@ This project was developed with the assistance of AI tools to accelerate the cre
 ---
 
 > *"Equality Has No Gender. Every identity deserves dignity, respect, and the freedom to be."*
+
+---
 
 Made with 💚 with the help of AI.
