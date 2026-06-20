@@ -2,7 +2,7 @@
 
 A modern, professional, and emotionally impactful web platform built to spread awareness about the transgender community. TransPride promotes equality, dignity, and inclusion for transgender individuals through education, resources, and community support.
 
-**Live Site 👉 :** [https://all-equal-now.lovable.app](https://all-equal-now.lovable.app)
+**Live Site 👉 :** [https://all-equal-now.lovable.app](https://trans-pride-eqality.lovable.app/)
 
 ---
 
