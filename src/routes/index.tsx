@@ -21,7 +21,12 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Promoting equality, dignity, and inclusion for transgender individuals. Learn, support, and take action for transgender rights in India and beyond." },
       { property: "og:title", content: "TransPride – Equality Has No Gender" },
       { property: "og:description", content: "Promoting equality, dignity, and inclusion for transgender individuals." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://trans-pride-eqality.lovable.app/" },
+      { name: "twitter:title", content: "TransPride – Equality Has No Gender" },
+      { name: "twitter:description", content: "Promoting equality, dignity, and inclusion for transgender individuals." },
     ],
+    links: [{ rel: "canonical", href: "https://trans-pride-eqality.lovable.app/" }],
   }),
 });
 

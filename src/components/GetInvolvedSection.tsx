@@ -38,13 +38,17 @@ function sharePage(platform: (typeof shareOptions)[number]["platform"]) {
   const encodedText = encodeURIComponent(`${shareText} ${pageUrl}`);
 
   const shareUrls = {
-    twitter: `https://twitter.com/intent/post?text=${encodeURIComponent(shareText)}&url=${encodedUrl}`,
+    twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodedUrl}`,
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
     whatsapp: `https://api.whatsapp.com/send?text=${encodedText}`,
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
   };
 
-  const shareWindow = window.open(shareUrls[platform], "_blank", "noopener,noreferrer");
+  const shareWindow = window.open(
+    shareUrls[platform],
+    "_blank",
+    "popup,width=640,height=720,noopener,noreferrer",
+  );
   if (!shareWindow) {
     toast.error("Your browser blocked the sharing window. Please allow pop-ups and try again.");
   }
@@ -90,7 +94,7 @@ export function GetInvolvedSection() {
         {/* Social share */}
         <div className="reveal mt-12 text-center">
           <p className="text-muted-foreground mb-4">Share this page and spread awareness</p>
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             {shareOptions.map(({ name, platform }) => (
               <Button
                 key={platform}

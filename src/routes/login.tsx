@@ -13,7 +13,14 @@ export const Route = createFileRoute("/login")({
     meta: [
       { title: "Login – TransPride" },
       { name: "description", content: "Sign in to your TransPride account." },
+      { property: "og:title", content: "Login – TransPride" },
+      { property: "og:description", content: "Sign in to your TransPride account." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://trans-pride-eqality.lovable.app/login" },
+      { name: "twitter:title", content: "Login – TransPride" },
+      { name: "twitter:description", content: "Sign in to your TransPride account." },
     ],
+    links: [{ rel: "canonical", href: "https://trans-pride-eqality.lovable.app/login" }],
   }),
 });
 
