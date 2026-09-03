@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 const actions = [
   {
@@ -22,6 +23,32 @@ const actions = [
     description: "Write to your representatives, support inclusive policies, and participate in pride events and awareness campaigns.",
   },
 ];
+
+const shareOptions = [
+  { name: "X / Twitter", platform: "twitter" },
+  { name: "Facebook", platform: "facebook" },
+  { name: "WhatsApp", platform: "whatsapp" },
+  { name: "LinkedIn", platform: "linkedin" },
+] as const;
+
+function sharePage(platform: (typeof shareOptions)[number]["platform"]) {
+  const pageUrl = window.location.href.split("#")[0];
+  const shareText = "Equality has no gender. Learn, support, and take action with TransPride.";
+  const encodedUrl = encodeURIComponent(pageUrl);
+  const encodedText = encodeURIComponent(`${shareText} ${pageUrl}`);
+
+  const shareUrls = {
+    twitter: `https://twitter.com/intent/post?text=${encodeURIComponent(shareText)}&url=${encodedUrl}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+    whatsapp: `https://api.whatsapp.com/send?text=${encodedText}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+  };
+
+  const shareWindow = window.open(shareUrls[platform], "_blank", "noopener,noreferrer");
+  if (!shareWindow) {
+    toast.error("Your browser blocked the sharing window. Please allow pop-ups and try again.");
+  }
+}
 
 export function GetInvolvedSection() {
   return (
@@ -64,14 +91,17 @@ export function GetInvolvedSection() {
         <div className="reveal mt-12 text-center">
           <p className="text-muted-foreground mb-4">Share this page and spread awareness</p>
           <div className="flex items-center justify-center gap-3">
-            {["Twitter", "Facebook", "WhatsApp", "LinkedIn"].map((platform) => (
-              <button
+            {shareOptions.map(({ name, platform }) => (
+              <Button
                 key={platform}
-                className="px-4 py-2 text-sm font-medium rounded-full bg-accent text-accent-foreground hover:bg-pride-blue/10 hover:text-pride-blue transition-colors"
-                aria-label={`Share on ${platform}`}
+                type="button"
+                variant="outline"
+                className="rounded-full bg-accent text-accent-foreground hover:bg-pride-blue/10 hover:text-pride-blue"
+                aria-label={`Share TransPride on ${name}`}
+                onClick={() => sharePage(platform)}
               >
-                {platform}
-              </button>
+                {name}
+              </Button>
             ))}
           </div>
         </div>
