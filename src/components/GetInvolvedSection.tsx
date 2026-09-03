@@ -1,27 +1,62 @@
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 const actions = [
   {
     icon: "❤️",
     title: "Donate",
-    description: "Support organizations working for transgender rights. Even a small contribution can provide shelter, healthcare, or legal aid.",
+    description:
+      "Support organizations working for transgender rights. Even a small contribution can provide shelter, healthcare, or legal aid.",
   },
   {
     icon: "🤝",
     title: "Volunteer",
-    description: "Join local NGOs, participate in community events, or offer your professional skills to trans support organizations.",
+    description:
+      "Join local NGOs, participate in community events, or offer your professional skills to trans support organizations.",
   },
   {
     icon: "📢",
     title: "Spread Awareness",
-    description: "Share information on social media, have conversations with friends and family, and challenge transphobia when you see it.",
+    description:
+      "Share information on social media, have conversations with friends and family, and challenge transphobia when you see it.",
   },
   {
     icon: "🗳️",
     title: "Advocate",
-    description: "Write to your representatives, support inclusive policies, and participate in pride events and awareness campaigns.",
+    description:
+      "Write to your representatives, support inclusive policies, and participate in pride events and awareness campaigns.",
   },
 ];
+
+const shareOptions = [
+  { name: "X / Twitter", platform: "twitter" },
+  { name: "Facebook", platform: "facebook" },
+  { name: "WhatsApp", platform: "whatsapp" },
+  { name: "LinkedIn", platform: "linkedin" },
+] as const;
+
+function sharePage(platform: (typeof shareOptions)[number]["platform"]) {
+  const pageUrl = window.location.href.split("#")[0];
+  const shareText = "Equality has no gender. Learn, support, and take action with TransPride.";
+  const encodedUrl = encodeURIComponent(pageUrl);
+  const encodedText = encodeURIComponent(`${shareText} ${pageUrl}`);
+
+  const shareUrls = {
+    twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodedUrl}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+    whatsapp: `https://api.whatsapp.com/send?text=${encodedText}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+  };
+
+  const shareWindow = window.open(
+    shareUrls[platform],
+    "_blank",
+    "popup,width=640,height=720,noopener,noreferrer",
+  );
+  if (!shareWindow) {
+    toast.error("Your browser blocked the sharing window. Please allow pop-ups and try again.");
+  }
+}
 
 export function GetInvolvedSection() {
   return (
@@ -33,14 +68,26 @@ export function GetInvolvedSection() {
             Take Action Now
           </h2>
           <p className="text-primary-foreground/90 text-lg max-w-2xl mx-auto mb-8">
-            Change doesn't happen by watching. It happens when people like you decide to act.
-            Every voice, every action, every rupee makes a difference.
+            Change doesn't happen by watching. It happens when people like you decide to act. Every
+            voice, every action, every rupee makes a difference.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl" className="bg-background text-foreground hover:bg-background/90" asChild>
-              <a href="https://sahodari.org/home.html" target="_blank" rel="noopener noreferrer">Donate Now</a>
+            <Button
+              variant="hero"
+              size="xl"
+              className="bg-background text-foreground hover:bg-background/90"
+              asChild
+            >
+              <a href="https://sahodari.org/home.html" target="_blank" rel="noopener noreferrer">
+                Donate Now
+              </a>
             </Button>
-            <Button variant="hero-outline" size="xl" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/20" asChild>
+            <Button
+              variant="hero-outline"
+              size="xl"
+              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/20"
+              asChild
+            >
               <a href="#contact">Join the Movement</a>
             </Button>
           </div>
@@ -63,15 +110,18 @@ export function GetInvolvedSection() {
         {/* Social share */}
         <div className="reveal mt-12 text-center">
           <p className="text-muted-foreground mb-4">Share this page and spread awareness</p>
-          <div className="flex items-center justify-center gap-3">
-            {["Twitter", "Facebook", "WhatsApp", "LinkedIn"].map((platform) => (
-              <button
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {shareOptions.map(({ name, platform }) => (
+              <Button
                 key={platform}
-                className="px-4 py-2 text-sm font-medium rounded-full bg-accent text-accent-foreground hover:bg-pride-blue/10 hover:text-pride-blue transition-colors"
-                aria-label={`Share on ${platform}`}
+                type="button"
+                variant="outline"
+                className="rounded-full bg-accent text-accent-foreground hover:bg-pride-blue/10 hover:text-pride-blue"
+                aria-label={`Share TransPride on ${name}`}
+                onClick={() => sharePage(platform)}
               >
-                {platform}
-              </button>
+                {name}
+              </Button>
             ))}
           </div>
         </div>
