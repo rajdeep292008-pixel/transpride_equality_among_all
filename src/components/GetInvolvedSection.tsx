@@ -5,22 +5,26 @@ const actions = [
   {
     icon: "❤️",
     title: "Donate",
-    description: "Support organizations working for transgender rights. Even a small contribution can provide shelter, healthcare, or legal aid.",
+    description:
+      "Support organizations working for transgender rights. Even a small contribution can provide shelter, healthcare, or legal aid.",
   },
   {
     icon: "🤝",
     title: "Volunteer",
-    description: "Join local NGOs, participate in community events, or offer your professional skills to trans support organizations.",
+    description:
+      "Join local NGOs, participate in community events, or offer your professional skills to trans support organizations.",
   },
   {
     icon: "📢",
     title: "Spread Awareness",
-    description: "Share information on social media, have conversations with friends and family, and challenge transphobia when you see it.",
+    description:
+      "Share information on social media, have conversations with friends and family, and challenge transphobia when you see it.",
   },
   {
     icon: "🗳️",
     title: "Advocate",
-    description: "Write to your representatives, support inclusive policies, and participate in pride events and awareness campaigns.",
+    description:
+      "Write to your representatives, support inclusive policies, and participate in pride events and awareness campaigns.",
   },
 ];
 
@@ -64,14 +68,26 @@ export function GetInvolvedSection() {
             Take Action Now
           </h2>
           <p className="text-primary-foreground/90 text-lg max-w-2xl mx-auto mb-8">
-            Change doesn't happen by watching. It happens when people like you decide to act.
-            Every voice, every action, every rupee makes a difference.
+            Change doesn't happen by watching. It happens when people like you decide to act. Every
+            voice, every action, every rupee makes a difference.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl" className="bg-background text-foreground hover:bg-background/90" asChild>
-              <a href="https://sahodari.org/home.html" target="_blank" rel="noopener noreferrer">Donate Now</a>
+            <Button
+              variant="hero"
+              size="xl"
+              className="bg-background text-foreground hover:bg-background/90"
+              asChild
+            >
+              <a href="https://sahodari.org/home.html" target="_blank" rel="noopener noreferrer">
+                Donate Now
+              </a>
             </Button>
-            <Button variant="hero-outline" size="xl" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/20" asChild>
+            <Button
+              variant="hero-outline"
+              size="xl"
+              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/20"
+              asChild
+            >
               <a href="#contact">Join the Movement</a>
             </Button>
           </div>
