@@ -1,54 +1,63 @@
 const stories = [
   {
     name: "Laverne Cox",
+    url: "https://en.wikipedia.org/wiki/Laverne_Cox",
     location: "United States",
     quote: "It is revolutionary for any trans person to choose to be seen and visible in a world that tells us we should not exist.",
     role: "Emmy-Nominated Actress & Producer",
   },
   {
     name: "Joyita Mondal",
+    url: "https://en.wikipedia.org/wiki/Joyita_Mondal",
     location: "West Bengal, India",
     quote: "I want to show that transgender people can hold positions of dignity and serve their communities with integrity.",
     role: "India's First Transgender Judge",
   },
   {
     name: "Manabi Bandopadhyay",
+    url: "https://en.wikipedia.org/wiki/Manabi_Bandopadhyay",
     location: "West Bengal, India",
     quote: "Education is the strongest weapon. When you change minds, you change the world.",
     role: "India's First Transgender College Principal",
   },
   {
     name: "Shabnam Mausi",
+    url: "https://en.wikipedia.org/wiki/Shabnam_Mausi",
     location: "Madhya Pradesh, India",
     quote: "If we can win an election, we can win hearts. Politics needs people who have known struggle.",
     role: "First Transgender Elected MLA in India",
   },
   {
     name: "Padmini Prakash",
+    url: "https://en.wikipedia.org/wiki/Padmini_Prakash",
     location: "Tamil Nadu, India",
     quote: "Representation matters. When a child sees someone like them on television, they know they are not alone.",
     role: "India's First Transgender News Anchor",
   },
   {
     name: "Dr. Rachel Levine",
+    url: "https://en.wikipedia.org/wiki/Rachel_Levine",
     location: "United States",
     quote: "Being authentic to who you are is the greatest gift you can give yourself and the world.",
     role: "U.S. Assistant Secretary for Health",
   },
   {
     name: "Georgina Beyer",
+    url: "https://en.wikipedia.org/wiki/Georgina_Beyer",
     location: "New Zealand",
     quote: "I never set out to be a trailblazer. I just wanted to live, and serve my people honestly.",
     role: "World's First Openly Transgender MP",
   },
   {
     name: "Gauri Sawant",
+    url: "https://en.wikipedia.org/wiki/Gauri_Sawant",
     location: "Maharashtra, India",
     quote: "Every child deserves a mother's love — and every mother deserves to be recognized, no matter her gender.",
     role: "Activist & Adoptive Mother",
   },
   {
     name: "Lynn Conway",
+    url: "https://en.wikipedia.org/wiki/Lynn_Conway",
     location: "United States",
     quote: "Don't let anyone tell you what you cannot achieve. Innovation belongs to all of us.",
     role: "Pioneering Computer Scientist",
@@ -80,7 +89,15 @@ export function StoriesSection() {
                   {story.name[0]}
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground">{story.name}</p>
+                  <a
+                    href={story.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-foreground hover:text-primary underline-offset-4 hover:underline transition-colors"
+                    aria-label={`Learn more about ${story.name}`}
+                  >
+                    {story.name}
+                  </a>
                   <p className="text-xs text-muted-foreground">{story.location}</p>
                 </div>
               </div>
